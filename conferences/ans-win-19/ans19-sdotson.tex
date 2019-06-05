@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{wrapfig}
 
 \begin{document}
 
@@ -61,7 +62,7 @@
 		\begin{flushleft}
 			\large
 			\textit{Prepared for:}\\
-			\textsc{Institute of Reports}\\ % 
+			\textsc{American Nuclear Society}\\ % 
                         \textsc{Contract} NN-NNNN\\ % 
                 \end{flushleft}
 	\end{minipage}
@@ -121,6 +122,20 @@ accuracy is enough to warrant the increased computational complexity. Finally, n
 be obtained through simulations with GADRAS-DRF (Mitchell and Harding, 2014) software.
 
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{dense-layer-figure.png}
+\caption{An arbitrary neural network that maps values with weights (arrows).}
+\label{fig:dense-nn}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{neuron-figure.png}
+\caption{A single neuron being passed through an activation function, $\textit{f}$.}
+\label{fig:neuron}
+\end{figure}
+
+
 \section{Theory -- Artificial Neural Networks}
 
 An artificial neural network (ANN) is a function that maps values from ${\mathbb{R}}_{N}$ to ${\mathbb{R}}_{K}$ by mimicking biological 
@@ -137,7 +152,7 @@ The weights are updated through back propagation by taking the derivative of E w
 The error function minimized during training of the INN is cross-entropy,
 
 \begin{equation}
-E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}}
+E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}}.
 \end{equation}
 
 
@@ -164,19 +179,44 @@ Here, the corresponding labels are radioactive isotopes.
 
 \section{Methods}
 \subsection{Training set creation}
+It is infeasible to get enough real measurements to properly train a neural network. 
+Thus all of the data used to train the neural network here has been simulated using GADRAS-DRF (Mitchell and Harding, 2014). 
+The 29 isotopes in the dataset are based on the American National Standards Institute performance criteria for handheld instruments for the detection and identification of radionuclides, ANSI N42-34-2015 (ANSI, 2015). 
+Previous work (Kamuda, et. al 2018) used a uniform distribution of background isotopes and a constant average count of 65 counts per second (cps) for the background. 
+Simulating background radiation in this manner is insufficient for training a neural network to be robust against background variations and thus cannot be generalized to real conditions. 
+We are updating the simulation protocol to increase the variability in background conditions. New simulated data will include random noise in a range of 40 to 200 cps. 
+We believe this range is realistic for background radiation.
 \subsection{Network Structure and Hyperparameters}
+A neural network can memorize training sets resulting in overtraining and a misidentification of novel data. 
+This is especially true for an INN, whose weights are difficult to tune with simple back propagation.
+To solve this problem during training, we include an intermediate softmax output that allows for error corrections before the entire forward pass is complete. 
+This branch is ignored during prediction, but offers a way to prevent overtraining. 
+In the fully connected layer, dropout regularization is used to force the neural network to learn newpathways. 
+Another method to prevent overfitting is the use of hyperparameters to optimize performance. 
+There is no way to know which hyperparameters will influence the model before training, so a random hyperparameter search is performed to identify which are important (Bergstra and Bengio, 2012). 
+For CNN structures, like the INN, hyperparameters include the number and sizes of convolutional filters, and the number of nodes and dropout rate for the fully connected layer. 
 \subsection{Benchmark Techniques}
+In order to compare the efficiency of these two neural networks and the effectiveness of updated datasets, we will train each network twice. 
+Once reusing data from previous work (Kamuda, et. al,  2018) and again with the improved datasets. 
+This will allow us to identify if accuracy improved more due to a sophisticated algorithm or the advance is attributable to better training data, or some combination thereof. 
+The INN will demonstrate a satisfactory improvement over the CNN if the amount of time required to train the network results in an equivalent reduction in variance for predictions. 
+For concreteness, a 10$\percent$ increase in training time should correspond to a 10$\percent$, or greater, decrease in the variance for the INN when compared with the training time and variance of the CNN.
 
 \section{Conclusion}
 
-\begin{thebibliography}{References}
-\bibitem{}
-\bibitem{}
-\bibitem{}
-\bibitem{}
-\bibitem{}
-\bibitem{}
-\end{thebibliography}
+In this study, we compare the accuracy of two neural networks, a convolutional neural network with two convolutional layers and an inception neural network with three inception layers, for identifying radioactive isotopes in low-resolution gamma-ray spectra. 
+We hypothesize that the INN would exhibit an increase in robustness commensurate to its computationalcomplexity and that training the neural networks with larger and varied datasets will also improve its robustness. 
+Improvements in the ability to identify isotopes present in a sample of radioactive material will have implications for [$\emph{add something here...}$]
+
+
+%\begin{thebibliography{References}
+%\bibitem{}
+%\bibitem{}
+%\bibitem{}
+%\bibitem{}
+%\bibitem{}
+%\bibitem{}
+%\end{thebibliography}
 
 
 \end{document}
