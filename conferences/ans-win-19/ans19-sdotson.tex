@@ -5,6 +5,8 @@
 
 %\usepackage{mathpazo} % Palatino font
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
 
 \begin{document}
 
@@ -102,10 +104,34 @@
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}
-Developing algorithms that accurately identify the isotope sources of low-resolution gamma-ray spectra will be an important advance over the current isotope identification workflow (Sullivan, 2010). Previous work has shown that artificial neural networks can perform isotope identification using low-resolution gamma-ray spectrometers (Cite: [3], [4], [5]). The purpose of this paper is to introduce a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis (ANNSA) package and to improve the training data simulations to better emulate background radiation found in real measurements. The new feature is known as an Inception Neural Network (INN) that implements wide convolutional layers with several filters, rather than the typical single-filter layer in a simple convolutional neural network (CNN). The features of a gamma-ray spectrum vary depending on the full width at half max (FWHM) of the photopeaks. Simultaneously applying multiple filters of different sizes allows an INN to capture more features during a single layer than a CNN. We hypothesize that an INN will also be robust to changes in background radiation thereby generalizing the ANNSA framework to more scenarios. We will compare the INN to a simple CNN to determine if the improvement in accuracy is enough to warrant the increased computational complexity. Finally, new training data will be obtained through simulations with GADRAS-DRF (Mitchell and Harding, 2014) software.
+Developing algorithms that accurately identify the isotope sources of low-resolution gamma-ray 
+spectra will be an important advance over the current isotope identification workflow (Sullivan, 2010).
+Previous work has shown that artificial neural networks can perform isotope identification using low-
+resolution gamma-ray spectrometers (Cite: [3], [4], [5]). The purpose of this paper is to introduce 
+a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis 
+(ANNSA) package and to improve the training data simulations to better emulate background radiation 
+found in real measurements. The new feature is known as an Inception Neural Network (INN) that 
+implements wide convolutional layers with several filters, rather than the typical single-filter layer 
+in a simple convolutional neural network (CNN). The features of a gamma-ray spectrum vary depending 
+on the full width at half max (FWHM) of the photopeaks. Simultaneously applying multiple filters of 
+different sizes allows an INN to capture more features during a single layer than a CNN. We hypothesize 
+that an INN will also be robust to changes in background radiation thereby generalizing the ANNSA 
+framework to more scenarios. We will compare the INN to a simple CNN to determine if the improvement in 
+accuracy is enough to warrant the increased computational complexity. Finally, new training data will 
+be obtained through simulations with GADRAS-DRF (Mitchell and Harding, 2014) software.
 
 
+\section{Theory -- Artificial Neural Networks}
 
+An artificial neural network (ANN) is a function that maps values from ${\mathbb{R}}_{N}$ to ${\mathbb{R}}_{K}$ by mimicking biological 
+neurons. Examples of an arbitrary neural net and a single neuron are shown in Fig. 1 and Fig. 2. The 
+sum of the inputs times the weights pointing to a neuron are passed through an activation function, 
+here it is a rectified linear unit,
+
+\begin{equation}
+Relu = argmax(0, x),
+\end{equation}
+and then used as the input for the next layer, as shown in Fig. 2. 
 
 \end{document}
 
