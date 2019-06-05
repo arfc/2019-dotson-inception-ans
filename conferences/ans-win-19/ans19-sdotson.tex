@@ -132,6 +132,52 @@ here it is a rectified linear unit,
 Relu = argmax(0, x),
 \end{equation}
 and then used as the input for the next layer, as shown in Fig. 2. 
+An ANN may be trained by iteratively updating the weights of a network that minimizes an error function E, 
+The weights are updated through back propagation by taking the derivative of E with respect to the weights. 
+The error function minimized during training of the INN is cross-entropy,
+
+\begin{equation}
+E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}}
+\end{equation}
+
+
+Eq. 2 is the cross-entropy for a multiclass classification, where there are more than two possible labels 
+for a given input. M is the total number of labels for a given model, in this case it corresponds to 29 
+radionuclides (ANSI, 2015). Variable yo,c is binary, indicating whether observation, o, has the correct label, c. 
+Variable po,c is the probability that o is a member of c. The complete INN model is shown in Fig. 3 and Fig. 4. 
+The input for the INN is a 2”x2” NaI spectrum of 1024 channels and the final output is a softmax given by,
+
+\begin{equation}
+softmax(z_j) = \frac{\exp(z_j)}{\sum_{k=1}^{k}}.
+\end{equation}
+
+The input data is passed through three ‘inception’ layers and, after flattening, the output is passedto a dense layer which gives the final softmax output. 
+Each ‘inception’ layer has a bottleneck, a convolution, and a concatenation (Szegedy, et. al, 2014).
+The bottleneck is performed to reduce the computational complexity before large convolution filters are applied. 
+A large filter can be factorized into several smaller filters to reduce the number of required multiplications. 
+The convolution layer uses filters to pick features of a spectrum that have local spatial significance, but no long-range relationships. 
+Once the convolution has been done with several filters, in parallel, the outputs of each of those convolutions are concatenated into a single tensor that is passed to the next ‘inception’ layer, or dense layer if the last layer has been reached. 
+Just like a typical CNN (Fig. [5]) the final step after feature identification, is classification. 
+Classification is performed by using a dense, or fully connected, layer that learns weights that correspond to a probability for a certain label. 
+Here, the corresponding labels are radioactive isotopes.
+
+
+\section{Methods}
+\subsection{Training set creation}
+\subsection{Network Structure and Hyperparameters}
+\subsection{Benchmark Techniques}
+
+\section{Conclusion}
+
+\begin{thebibliography}{References}
+\bibitem{}
+\bibitem{}
+\bibitem{}
+\bibitem{}
+\bibitem{}
+\bibitem{}
+\end{thebibliography}
+
 
 \end{document}
 
