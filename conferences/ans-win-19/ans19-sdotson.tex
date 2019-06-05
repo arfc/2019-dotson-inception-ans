@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+%\usepackage{mathpazo} % Palatino font
+\usepackage{graphicx}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+	
+	\center % Centre everything on the page
+	
+	%------------------------------------------------
+	%	Headings
+        % Full name of the issuing organization and its logo
+	%------------------------------------------------
+	%------------------------------------------------
+	%	Logo
+	%------------------------------------------------
+	
+	\vfill\vfill
+	\includegraphics[width=0.5\textwidth]{logo.png} % Include a department/university logo - this will require the graphicx package
+	 
+	%----------------------------------------------------------------------------------------
+	
+	
+        \vspace{1cm}
+	\HRule\\[0.4cm]
+        \textsc{\Large Advanced Reactors and Fuel Cycles Group}\\
+        {\Large Technical Report Series}\\ % Report Series
+	
+	{\large ARFC-NPRE-17-00}\\ % Report number
+
+	
+	%------------------------------------------------
+	%	Title
+        % Title of the report
+	%------------------------------------------------
+	
+	\HRule\\[0.4cm]
+	
+	{\huge\bfseries Inception Neural Networks for Isotope Identification}\\[0.4cm] % Title of your document
+	
+        %{\LARGE\textit{Subtitle}}\\[0.4cm] % Subtitle
+	\HRule\\[1.5cm]
+	
+	%------------------------------------------------
+	%	Author(s)
+	%------------------------------------------------
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Prepared for:}\\
+			\textsc{Institute of Reports}\\ % 
+                        \textsc{Contract} NN-NNNN\\ % 
+                \end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Prepared by:}\\
+			Samuel \textsc{Dotson}\\ %
+			Mark \textsc{Kamuda}\\ %
+			Prof. Kathryn \textsc{Huff} %
+		\end{flushright}
+	\end{minipage}
+	
+	% If you don't want a supervisor, uncomment the two lines below and comment the code above
+	%{\large\textit{Author}}\\
+	%John \textsc{Smith} % Your name
+	
+	%------------------------------------------------
+	%	Date
+	%------------------------------------------------
+	
+	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+	
+	{\large\today}\\ % Date, change the \today to a set date if you want to be precise
+        \vfill
+	%------------------------------------------------
+	%	Place
+	%------------------------------------------------
+	{\large Urbana, IL}\\ % Place
+        {\large Department of Nuclear, Plasma, and Radiological Engineering\\
+        University of Illinois at Urbana-Champaign}\\ % Issuing Instituion
+	
+	
+	
+	\vfill % Push the date up 1/4 of the remaining page
+	
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+Developing algorithms that accurately identify the isotope sources of low-resolution gamma-ray spectra will be an important advance over the current isotope identification workflow (Sullivan, 2010). Previous work has shown that artificial neural networks can perform isotope identification using low-resolution gamma-ray spectrometers (Cite: [3], [4], [5]). The purpose of this paper is to introduce a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis (ANNSA) package and to improve the training data simulations to better emulate background radiation found in real measurements. The new feature is known as an Inception Neural Network (INN) that implements wide convolutional layers with several filters, rather than the typical single-filter layer in a simple convolutional neural network (CNN). The features of a gamma-ray spectrum vary depending on the full width at half max (FWHM) of the photopeaks. Simultaneously applying multiple filters of different sizes allows an INN to capture more features during a single layer than a CNN. We hypothesize that an INN will also be robust to changes in background radiation thereby generalizing the ANNSA framework to more scenarios. We will compare the INN to a simple CNN to determine if the improvement in accuracy is enough to warrant the increased computational complexity. Finally, new training data will be obtained through simulations with GADRAS-DRF (Mitchell and Harding, 2014) software.
+
+
+
+
+\end{document}
+
