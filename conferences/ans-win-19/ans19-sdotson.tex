@@ -166,21 +166,21 @@ The input for the INN is a 2”x2” NaI spectrum of 1024 channels and the final
 softmax(z_j) = \frac{\exp(z_j)}{\sum_{k=1}^{k}}.
 \end{equation}
 
-The input data is passed through three ‘inception’ layers and, after flattening, the output is passedto a dense layer which gives the final softmax output. 
-Each ‘inception’ layer has a bottleneck, a convolution, and a concatenation (Szegedy, et. al, 2014).
+The input data is passed through three inception layers and, after flattening, the output is passedto a dense layer which gives the final softmax output. 
+Each inception layer has a bottleneck, a convolution, and a concatenation (Szegedy, et. al, 2014).
 The bottleneck is performed to reduce the computational complexity before large convolution filters are applied. 
-A large filter can be factorized into several smaller filters to reduce the number of required multiplications. 
+A large filter can be factorized into several smaller filters thereby reducing the number of required multiplications. 
 The convolution layer uses filters to pick features of a spectrum that have local spatial significance, but no long-range relationships. 
-Once the convolution has been done with several filters, in parallel, the outputs of each of those convolutions are concatenated into a single tensor that is passed to the next ‘inception’ layer, or dense layer if the last layer has been reached. 
-Just like a typical CNN (Fig. [5]) the final step after feature identification, is classification. 
+Once the convolution has been done with several filters in parallel the outputs of each of those convolutions are concatenated into a single tensor that is passed to the next inception layer, or dense layer if the last layer has been reached. 
+Just like a typical CNN (Fig. [5]), the final step after feature identification, is classification. 
 Classification is performed by using a dense, or fully connected, layer that learns weights that correspond to a probability for a certain label. 
-Here, the corresponding labels are radioactive isotopes.
+In this case, the corresponding labels are radioactive isotopes.
 
 
 \section{Methods}
 \subsection{Training set creation}
-It is infeasible to get enough real measurements to properly train a neural network. 
-Thus all of the data used to train the neural network here has been simulated using GADRAS-DRF (Mitchell and Harding, 2014). 
+It is infeasible to obtain enough real measurements to properly train a neural network. 
+Thus all of the datasets used to train the neural network here were simulated using GADRAS-DRF (Mitchell and Harding, 2014). 
 The 29 isotopes in the dataset are based on the American National Standards Institute performance criteria for handheld instruments for the detection and identification of radionuclides, ANSI N42-34-2015 (ANSI, 2015). 
 Previous work (Kamuda, et. al 2018) used a uniform distribution of background isotopes and a constant average count of 65 counts per second (cps) for the background. 
 Simulating background radiation in this manner is insufficient for training a neural network to be robust against background variations and thus cannot be generalized to real conditions. 
@@ -191,22 +191,22 @@ A neural network can memorize training sets resulting in overtraining and a misi
 This is especially true for an INN, whose weights are difficult to tune with simple back propagation.
 To solve this problem during training, we include an intermediate softmax output that allows for error corrections before the entire forward pass is complete. 
 This branch is ignored during prediction, but offers a way to prevent overtraining. 
-In the fully connected layer, dropout regularization is used to force the neural network to learn newpathways. 
-Another method to prevent overfitting is the use of hyperparameters to optimize performance. 
-There is no way to know which hyperparameters will influence the model before training, so a random hyperparameter search is performed to identify which are important (Bergstra and Bengio, 2012). 
+In the fully connected layer, dropout regularization forces the neural network to learn newpathways. 
+Hyperparaemters can be used to optimize performance and prevent overfitting of the model.
+There is no way to know which hyperparameters will influence the model before training, so a random hyperparameter search is performed to find a set of hyperparameters that are close to ideal (Bergstra and Bengio, 2012). 
 For CNN structures, like the INN, hyperparameters include the number and sizes of convolutional filters, and the number of nodes and dropout rate for the fully connected layer. 
 \subsection{Benchmark Techniques}
 In order to compare the efficiency of these two neural networks and the effectiveness of updated datasets, we will train each network twice. 
-Once reusing data from previous work (Kamuda, et. al,  2018) and again with the improved datasets. 
+Once by reusing data from previous work (Kamuda, et. al,  2018) and again with the improved datasets. 
 This will allow us to identify if accuracy improved more due to a sophisticated algorithm or the advance is attributable to better training data, or some combination thereof. 
 The INN will demonstrate a satisfactory improvement over the CNN if the amount of time required to train the network results in an equivalent reduction in variance for predictions. 
-For concreteness, a 10$\percent$ increase in training time should correspond to a 10$\percent$, or greater, decrease in the variance for the INN when compared with the training time and variance of the CNN.
+For concreteness, a 10 percent increase in training time should correspond to a 10 percent, or greater, decrease in the variance for the INN when compared with the training time and variance of the CNN.
 
 \section{Conclusion}
 
 In this study, we compare the accuracy of two neural networks, a convolutional neural network with two convolutional layers and an inception neural network with three inception layers, for identifying radioactive isotopes in low-resolution gamma-ray spectra. 
-We hypothesize that the INN would exhibit an increase in robustness commensurate to its computationalcomplexity and that training the neural networks with larger and varied datasets will also improve its robustness. 
-Improvements in the ability to identify isotopes present in a sample of radioactive material will have implications for [$\emph{add something here...}$]
+We hypothesize that the INN would exhibit an increase in robustness commensurate to its computational complexity and that training the neural networks with larger and varied datasets will also improve its robustness. 
+Improvements to the identification of isotopes present in a sample of radioactive material will have important implications for national security and nuclear nonproliferation.
 
 
 %\begin{thebibliography{References}
