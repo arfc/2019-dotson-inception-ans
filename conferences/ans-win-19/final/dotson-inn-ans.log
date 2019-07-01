@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.12)  1 JUL 2019 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.12)  1 JUL 2019 18:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -741,11 +741,12 @@ LaTeX Font Info:    Try loading font information for U+txsyc on input line 47.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-<dense-layer-figure.png, id=1, 1146.2825pt x 809.0225pt>
-File: dense-layer-figure.png Graphic file (type png)
+<../figures/dense-layer-figure.png, id=1, 1146.2825pt x 809.0225pt>
+File: ../figures/dense-layer-figure.png Graphic file (type png)
 
-<use dense-layer-figure.png>
-Package pdftex.def Info: dense-layer-figure.png used on input line 52.
+<use ../figures/dense-layer-figure.png>
+Package pdftex.def Info: ../figures/dense-layer-figure.png used on input line 5
+2.
 (pdftex.def)             Requested size: 252.94499pt x 178.51633pt.
 
 Overfull \hbox (9.0pt too wide) in paragraph at lines 52--53
@@ -755,10 +756,11 @@ Overfull \hbox (9.0pt too wide) in paragraph at lines 52--53
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<neuron-figure.png, id=2, 815.045pt x 381.425pt>
-File: neuron-figure.png Graphic file (type png)
- <use neuron-figure.png>
-Package pdftex.def Info: neuron-figure.png used on input line 58.
+<../figures/neuron-figure.png, id=2, 815.045pt x 381.425pt>
+File: ../figures/neuron-figure.png Graphic file (type png)
+
+<use ../figures/neuron-figure.png>
+Package pdftex.def Info: ../figures/neuron-figure.png used on input line 58.
 (pdftex.def)             Requested size: 252.94499pt x 118.37437pt.
 
 Overfull \hbox (9.0pt too wide) in paragraph at lines 58--59
@@ -772,10 +774,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: Reference `fig:inn-full-figure' on page 1 undefined on input lin
 e 82.
 
-<inn-layer_figure.png, id=3, 963.6pt x 542.025pt>
-File: inn-layer_figure.png Graphic file (type png)
- <use inn-layer_figure.png>
-Package pdftex.def Info: inn-layer_figure.png used on input line 91.
+<../figures/inn-layer_figure.png, id=3, 963.6pt x 542.025pt>
+File: ../figures/inn-layer_figure.png Graphic file (type png)
+
+<use ../figures/inn-layer_figure.png>
+Package pdftex.def Info: ../figures/inn-layer_figure.png used on input line 91.
+
 (pdftex.def)             Requested size: 252.94499pt x 142.27956pt.
 
 Overfull \hbox (9.0pt too wide) in paragraph at lines 91--92
@@ -785,11 +789,11 @@ Overfull \hbox (9.0pt too wide) in paragraph at lines 91--92
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<inn-full-figure.png, id=4, 1199.48125pt x 702.625pt>
-File: inn-full-figure.png Graphic file (type png)
+<../figures/inn-full-figure.png, id=4, 1199.48125pt x 702.625pt>
+File: ../figures/inn-full-figure.png Graphic file (type png)
 
-<use inn-full-figure.png>
-Package pdftex.def Info: inn-full-figure.png used on input line 97.
+<use ../figures/inn-full-figure.png>
+Package pdftex.def Info: ../figures/inn-full-figure.png used on input line 97.
 (pdftex.def)             Requested size: 252.94499pt x 148.1667pt.
 
 Overfull \hbox (9.0pt too wide) in paragraph at lines 97--98
@@ -805,12 +809,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 \openout3 = `dotson-inn-ans.ist'.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./dense-layer-figure.png> 
-<./neuron-figure.png>] <cnn-figure.png, id=18, 584.1825pt x 784.9325pt>
-File: cnn-figure.png Graphic file (type png)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../figures/dense-layer-fig
+ure.png> <../figures/neuron-figure.png>]
+<../figures/cnn-figure.png, id=18, 584.1825pt x 784.9325pt>
+File: ../figures/cnn-figure.png Graphic file (type png)
 
-<use cnn-figure.png>
-Package pdftex.def Info: cnn-figure.png used on input line 114.
+<use ../figures/cnn-figure.png>
+Package pdftex.def Info: ../figures/cnn-figure.png used on input line 114.
 (pdftex.def)             Requested size: 252.94499pt x 339.8619pt.
 
 Overfull \hbox (9.0pt too wide) in paragraph at lines 114--115
@@ -823,9 +828,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2 <./inn-layer_figure.png (PNG copy)> <./inn-full-figure.png> <./cnn-figure.p
-ng>]
-(./dotson-inn-ans.bbl
+ [2 <../figures/inn-layer_figure.png (PNG copy)> <../figures/inn-full-figure.pn
+g> <../figures/cnn-figure.png>] (./dotson-inn-ans.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
@@ -840,8 +844,8 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 10960 strings out of 493029
- 164445 string characters out of 6136233
+ 10961 strings out of 493029
+ 164676 string characters out of 6136233
  321796 words of memory out of 5000000
  14089 multiletter control sequences out of 15000+600000
  47480 words of font info for 179 fonts, out of 8000000 for 9000
