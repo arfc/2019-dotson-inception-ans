@@ -49,6 +49,10 @@ We hypothesize that an INN will also be robust to changes in background radiatio
 We compare the accuracy of an INN to a simple CNN to determine if the improvement in accuracy is enough to warrant the increased computational complexity. 
 Finally, new training data will be obtained through simulations with GADRAS-DRF (Mitchell and Harding, 2014) software.
 
+\section{Theory -- Artificial Neural Networks}
+
+An artificial neural network (ANN) is a function that maps values from ${\mathbb{R}}_{N}$ to ${\mathbb{R}}_{K}$ by mimicking biological 
+neurons. Examples of an arbitrary neural net and a single neuron are shown in figures $\ref{fig:dense-nn}$ and $\ref{fig:neuron}$. 
 
 \begin{figure}[h]
 \centering
@@ -63,12 +67,7 @@ Finally, new training data will be obtained through simulations with GADRAS-DRF 
 \label{fig:neuron}
 \end{figure}
 
-
-\section{Theory -- Artificial Neural Networks}
-
-An artificial neural network (ANN) is a function that maps values from ${\mathbb{R}}_{N}$ to ${\mathbb{R}}_{K}$ by mimicking biological 
-neurons. Examples of an arbitrary neural net and a single neuron are shown in figures $\ref{fig:dense-nn}$ and $\ref{fig:neuron}$. The 
-sum of the inputs times the weights pointing to a neuron are passed through an activation function.
+The sum of the inputs times the weights pointing to a neuron are passed through an activation function.
 In this paper it is a rectified linear unit,
 
 \begin{equation}
@@ -155,16 +154,11 @@ In this study, we compare the accuracy of two neural networks, a convolutional n
 We hypothesize that the INN would exhibit an increase in robustness commensurate to its computational complexity and that training the neural networks with larger and varied datasets will also improve its robustness. 
 Improvements to the identification of isotopes present in a sample of radioactive material will have important implications for national security and nuclear nonproliferation.
 
+\section{Acknowledgements}
 
+This research is funded by the Department of Energy Nuclear Nonproliferation and Security Administration DNN R$\&$D consortium: The Consortium for Nonproliferation Enabling Capabilities. 
 
-%\begin{thebibliography{References}
-%\bibitem{}
-%\bibitem{}
-%\bibitem{}
-%\bibitem{}
-%\bibitem{}
-%\bibitem{}
-%\end{thebibliography}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ans}
+\bibliography{bibliography-ans-2019}
 \end{document}
