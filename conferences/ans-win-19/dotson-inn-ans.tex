@@ -124,7 +124,7 @@ In this case, the corresponding labels are radioactive isotopes.
 \end{figure}
 
 \section{Methods}
-\subsection{Training set creation}
+\subsection{\texit{Training set creation}}
 It is infeasible to obtain enough real measurements to properly train a neural network. 
 Thus all of the datasets used to train the neural network here were simulated using GADRAS-DRF (Mitchell and Harding, 2014). 
 The 29 isotopes in the dataset are based on the American National Standards Institute performance criteria for handheld instruments for the detection and identification of radionuclides, ANSI N42-34-2015 (ANSI, 2015). 
@@ -132,7 +132,7 @@ Previous work (Kamuda, et. al 2018) used a uniform distribution of background is
 Simulating background radiation in this manner is insufficient for training a neural network to be robust against background variations and thus cannot be generalized to real conditions. 
 We are updating the simulation protocol to increase the variability in background conditions. New simulated data will include random noise in a range of 40 to 200 cps. 
 We believe this range is realistic for background radiation.
-\subsection{Network Structure and Hyperparameters}
+\subsection{\textit{Network Structure and Hyperparameters}}
 A neural network can memorize training sets resulting in overtraining and a misidentification of novel data. 
 This is especially true for an INN, whose weights are difficult to tune with simple back propagation.
 To solve this problem during training, we include an intermediate softmax output that allows for error corrections before the entire forward pass is complete. 
@@ -141,7 +141,7 @@ In the fully connected layer, dropout regularization forces the neural network t
 Hyperparaemters can be used to optimize performance and prevent overfitting of the model.
 There is no way to know which hyperparameters will influence the model before training, so a random hyperparameter search is performed to find a set of hyperparameters that are close to ideal (Bergstra and Bengio, 2012). 
 For CNN structures, like the INN, hyperparameters include the number and sizes of convolutional filters, and the number of nodes and dropout rate for the fully connected layer. 
-\subsection{Benchmark Techniques}
+\subsection{\textit{Benchmark Techniques}}
 In order to compare the efficiency of these two neural networks and the effectiveness of updated datasets, we will train each network twice. 
 Once by reusing data from previous work (Kamuda, et. al,  2018) and again with the improved datasets. 
 This will allow us to identify if accuracy improved more due to a sophisticated algorithm or the advance is attributable to better training data, or some combination thereof. 
@@ -159,6 +159,6 @@ Improvements to the identification of isotopes present in a sample of radioactiv
 This research is funded by the Department of Energy Nuclear Nonproliferation and Security Administration DNN R$\&$D consortium: The Consortium for Nonproliferation Enabling Capabilities. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{ans}
-\bibliography{bibliography-ans-2019}
+\bibliographystyle{plain}
+\bibliography{bibliography}
 \end{document}
