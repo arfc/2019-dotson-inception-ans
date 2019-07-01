@@ -1,110 +1,44 @@
-\documentclass[11pt]{article}
+\documentclass{anstrans}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Inception Neural Networks for Isotope Identification}
+\author{Samuel Dotson, Mark Kamuda, and Kathryn D. Huff}
 
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
+\institute{
+Dept. of Nuclear, Plasma and Radiological Engineering, University of Illinois at Urbana-Champaign \\
+sgd2@illinois.edu
+}
 
-%\usepackage{mathpazo} % Palatino font
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{wrapfig}
+%%%% packages and definitions (optional)
+\usepackage{graphicx} % allows inclusion of graphics
+\usepackage{booktabs} % nice rules (thick lines) for tables
+\usepackage{microtype} % improves typography for PDF
+\usepackage{xspace}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
+\makeglossaries
+\newcommand{\SN}{S$_N$}
+\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
+\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
+\newcommand{\grad}{\vec{\nabla}} % gradient
+\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
+\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
+\newcommand{\Cycamore}{\textsc{Cycamore}\xspace}%
+\newcolumntype{c}{>{\hsize=.56\hsize}X}
+\newcolumntype{b}{>{\hsize=.7\hsize}X}
+\newcolumntype{s}{>{\hsize=.74\hsize}X}
+\newcolumntype{f}{>{\hsize=.1\hsize}X}
+\newcolumntype{a}{>{\hsize=.45\hsize}X}
+\usepackage{titlesec}
+\titleformat*{\subsection}{\normalfont}
 
 \begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%	TITLE PAGE
-%----------------------------------------------------------------------------------------
-
-\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
-	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
-	
-	\center % Centre everything on the page
-	
-	%------------------------------------------------
-	%	Headings
-        % Full name of the issuing organization and its logo
-	%------------------------------------------------
-	%------------------------------------------------
-	%	Logo
-	%------------------------------------------------
-	
-	\vfill\vfill
-	\includegraphics[width=0.5\textwidth]{logo.png} % Include a department/university logo - this will require the graphicx package
-	 
-	%----------------------------------------------------------------------------------------
-	
-	
-        \vspace{1cm}
-	\HRule\\[0.4cm]
-        \textsc{\Large Advanced Reactors and Fuel Cycles Group}\\
-        {\Large Technical Report Series}\\ % Report Series
-	
-	{\large ARFC-NPRE-17-00}\\ % Report number
-
-	
-	%------------------------------------------------
-	%	Title
-        % Title of the report
-	%------------------------------------------------
-	
-	\HRule\\[0.4cm]
-	
-	{\huge\bfseries Inception Neural Networks for Isotope Identification}\\[0.4cm] % Title of your document
-	
-        %{\LARGE\textit{Subtitle}}\\[0.4cm] % Subtitle
-	\HRule\\[1.5cm]
-	
-	%------------------------------------------------
-	%	Author(s)
-	%------------------------------------------------
-	
-	\begin{minipage}{0.4\textwidth}
-		\begin{flushleft}
-			\large
-			\textit{Prepared for:}\\
-			\textsc{American Nuclear Society}\\ % 
-                        \textsc{Contract} NN-NNNN\\ % 
-                \end{flushleft}
-	\end{minipage}
-	~
-	\begin{minipage}{0.4\textwidth}
-		\begin{flushright}
-			\large
-			\textit{Prepared by:}\\
-			Samuel \textsc{Dotson}\\ %
-			Mark \textsc{Kamuda}\\ %
-			Prof. Kathryn \textsc{Huff} %
-		\end{flushright}
-	\end{minipage}
-	
-	% If you don't want a supervisor, uncomment the two lines below and comment the code above
-	%{\large\textit{Author}}\\
-	%John \textsc{Smith} % Your name
-	
-	%------------------------------------------------
-	%	Date
-	%------------------------------------------------
-	
-	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
-	
-	{\large\today}\\ % Date, change the \today to a set date if you want to be precise
-        \vfill
-	%------------------------------------------------
-	%	Place
-	%------------------------------------------------
-	{\large Urbana, IL}\\ % Place
-        {\large Department of Nuclear, Plasma, and Radiological Engineering\\
-        University of Illinois at Urbana-Champaign}\\ % Issuing Instituion
-	
-	
-	
-	\vfill % Push the date up 1/4 of the remaining page
-	
-\end{titlepage}
-
-%----------------------------------------------------------------------------------------
-
- \section{Introduction}
+\section{Introduction}
 The development of algorithms that can accurately identify the isotopic sources of low-resolution gamma-ray 
 spectra is an important advancement in  current spectroscopy workflow (Sullivan, 2010).
 Previous work has shown that artificial neural networks can be used to perform isotope identification (Cite: [3], [4], [5]). This paper introduces a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis (ANNSA) package. This new feature is known as an Inception Neural Network (INN). An INN implements inception layers that consist of wide convolutional layers with several filters, rather than the typical single-filter layer in a simple convolutional neural network (CNN).
@@ -163,13 +97,13 @@ softmax(z_j) = \frac{\exp(z_j)}{\sum_{k=1}^{k}}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{inn-layer_figure.png}
+    \includegraphics[width=0.5\textwidth]{inn-layer_figure.png}
     \caption{A gamma spectrum shown as the input for the first inception layer.}
     \label{fig:inn-layer}
 \end{figure}
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{inn-full-figure.png}
+    \includegraphics[width=0.5\textwidth]{inn-full-figure.png}
     \caption{A zoomed out example of a full inception neural network.}
     \label{fig:inn-full}
 \end{figure}
@@ -228,4 +162,3 @@ Improvements to the identification of isotopes present in a sample of radioactiv
 
 
 \end{document}
-
