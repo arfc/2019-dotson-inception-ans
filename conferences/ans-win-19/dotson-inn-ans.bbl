@@ -1,0 +1,53 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+
+\bibitem{rawool-sullivanStepsAutomatedGamma2010}
+\MakeUppercase{M.~Rawool-Sullivan}, \MakeUppercase{J.~Bounds},
+  \MakeUppercase{S.~Brumby}, \MakeUppercase{L.~Prasad}, and
+  \MakeUppercase{J.~Sullivan}, \enquote{Steps {{Toward Automated Gamma Ray
+  Spectroscopy Steps Toward Automated Gamma Ray Spectroscopy}}: {{How}} a
+  {{Spectroscopist Deciphers}} an {{Unknown Spectrum}} to {{Reveal}} the
+  {{Radioactive Source}},} .
+
+\bibitem{kamudaAutomatedIsotopeIdentification2017}
+\MakeUppercase{M.~Kamuda}, \MakeUppercase{J.~Stinnett}, and
+  \MakeUppercase{C.~J. Sullivan}, \enquote{Automated {{Isotope Identification
+  Algorithm Using Artificial Neural Networks}},} \textbf{64}.
+
+\bibitem{kamudaComparisonMachineLearning2018a}
+\MakeUppercase{M.~Kamuda}, \MakeUppercase{J.~Zhao}, and
+  \MakeUppercase{K.~Huff}, \enquote{A Comparison of Machine Learning Methods
+  for Automated Gamma-Ray Spectroscopy,} .
+
+\bibitem{kamudaMachineLearningApproach2018}
+\MakeUppercase{M.~Kamuda}, \enquote{A {{Machine Learning Approach}} to
+  {{Identifying Shielded Radioisotopes}} in {{Gamma}}-{{Ray Spectra}},} .
+
+\bibitem{mitchellGADRASIsotopeID2014}
+\MakeUppercase{D.~J. Mitchell} and \MakeUppercase{L.~T. Harding},
+  \enquote{{{GADRAS}} Isotope {{ID}} Users Manual for Analysis of Gamma-Ray
+  Measurements and {{API}} for {{Linux}} and {{Android}} .} .
+
+\bibitem{AmericanNationalStandard2016}
+\enquote{American {{National Standard Performance Criteria}} for {{Handheld
+  Instruments}} for the {{Detection}} and {{Identification}} of
+  {{Radionuclides}},} pp. 1--60.
+
+\bibitem{szegedyGoingDeeperConvolutions2014}
+\MakeUppercase{C.~Szegedy}, \MakeUppercase{W.~Liu}, \MakeUppercase{Y.~Jia},
+  \MakeUppercase{P.~Sermanet}, \MakeUppercase{S.~Reed},
+  \MakeUppercase{D.~Anguelov}, \MakeUppercase{D.~Erhan},
+  \MakeUppercase{V.~Vanhoucke}, and \MakeUppercase{A.~Rabinovich},
+  \enquote{Going {{Deeper}} with {{Convolutions}},} .
+
+\bibitem{szegedyRethinkingInceptionArchitecture2015}
+\MakeUppercase{C.~Szegedy}, \MakeUppercase{V.~Vanhoucke},
+  \MakeUppercase{S.~Ioffe}, \MakeUppercase{J.~Shlens}, and
+  \MakeUppercase{Z.~Wojna}, \enquote{Rethinking the {{Inception Architecture}}
+  for {{Computer Vision}},} .
+
+\bibitem{bergstraRandomSearchHyperParameter}
+\MakeUppercase{J.~Bergstra} and \MakeUppercase{Y.~Bengio}, \enquote{Random
+  {{Search}} for {{Hyper}}-{{Parameter Optimization}},} p.~25.
+
+\end{thebibliography}
