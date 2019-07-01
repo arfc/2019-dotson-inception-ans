@@ -67,14 +67,14 @@ Finally, new training data will be obtained through simulations with GADRAS-DRF 
 \section{Theory -- Artificial Neural Networks}
 
 An artificial neural network (ANN) is a function that maps values from ${\mathbb{R}}_{N}$ to ${\mathbb{R}}_{K}$ by mimicking biological 
-neurons. Examples of an arbitrary neural net and a single neuron are shown in Fig. 1 and Fig. 2. The 
+neurons. Examples of an arbitrary neural net and a single neuron are shown in figures $\ref{fig:dense-nn}$ and $\ref{fig:neuron}$. The 
 sum of the inputs times the weights pointing to a neuron are passed through an activation function.
 In this paper it is a rectified linear unit,
 
 \begin{equation}
 Relu = argmax(0, x).
 \end{equation}
-The result is used as the input for the next layer, as shown in Fig. 2. 
+The result is used as the input for the next layer, as shown in figure $\ref{fig:neuron}$ 
 An ANN may be trained by iteratively updating the weights of a network that minimizes an error function, $E$. 
 The weights are updated through back propagation by taking the derivative of $E$ with respect to the weights. 
 The error function minimized during training of the INN is cross-entropy,
@@ -87,13 +87,12 @@ E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}}.
 Eq. 2 is the cross-entropy for multiclass classification, where there are more than two possible labels 
 for a given input. M is the total number of labels for a given model, in this case it corresponds to 29 
 radionuclides (ANSI, 2015). Variable $y_{o,c}$ is binary, indicating whether observation, o, has the correct label, c. 
-Variable $p_{o,c}$ is the probability that o is a member of c. The complete INN model is shown in Fig. 3 and Fig. 4. 
+Variable $p_{o,c}$ is the probability that o is a member of c. The complete INN model is shown in figure $\ref{fig:inn-layer}$ and figure $\ref{fig:inn-full-figure}$ 
 The input for the INN is a 2”x2” NaI spectrum of 1024 channels and the final output is a softmax given by,
 
 \begin{equation}
 softmax(z_j) = \frac{\exp(z_j)}{\sum_{k=1}^{k}}.
 \end{equation}
-
 
 \begin{figure}[h]
     \centering
@@ -114,10 +113,16 @@ The bottleneck is performed to reduce the computational complexity before large 
 A large filter can be factorized into several smaller filters thereby reducing the number of required multiplications. 
 The convolution layer uses filters to select features of a spectrum that have local spatial significance, but no long-range relationships. 
 Once the convolution has been done with several filters in parallel the outputs of each of those convolutions are concatenated into a single tensor that is passed to the next inception layer, or dense layer if the last layer has been reached. 
-Just like a typical CNN (Fig. [5]), the final step after feature identification, is classification. 
+Just like a typical CNN, shown in figure $\ref{fig:cnn}$, the final step after feature identification, is classification. 
 Classification is performed by using a dense, or fully connected, layer that learns weights that correspond to a probability for a certain label. 
 In this case, the corresponding labels are radioactive isotopes.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{cnn-figure.png}
+	\caption{An example of a typical convolutional neural network (Kamuda $et. al$ 2018).}
+	\label{fig:cnn}
+\end{figure}
 
 \section{Methods}
 \subsection{Training set creation}
@@ -149,6 +154,7 @@ For concreteness, a 10 percent increase in training time should correspond to a 
 In this study, we compare the accuracy of two neural networks, a convolutional neural network with two convolutional layers and an inception neural network with three inception layers, for identifying radioactive isotopes in low-resolution gamma-ray spectra. 
 We hypothesize that the INN would exhibit an increase in robustness commensurate to its computational complexity and that training the neural networks with larger and varied datasets will also improve its robustness. 
 Improvements to the identification of isotopes present in a sample of radioactive material will have important implications for national security and nuclear nonproliferation.
+
 
 
 %\begin{thebibliography{References}
