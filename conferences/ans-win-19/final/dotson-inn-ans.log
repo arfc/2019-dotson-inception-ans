@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.12)  1 JUL 2019 18:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.12)  2 JUL 2019 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -716,27 +716,27 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 47.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txmia on input line 47.
+LaTeX Font Info:    Try loading font information for U+txmia on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsya on input line 47.
+LaTeX Font Info:    Try loading font information for U+txsya on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyb on input line 47.
+LaTeX Font Info:    Try loading font information for U+txsyb on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 47.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
@@ -769,10 +769,6 @@ Overfull \hbox (9.0pt too wide) in paragraph at lines 58--59
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:inn-full-figure' on page 1 undefined on input lin
-e 82.
 
 <../figures/inn-layer_figure.png, id=3, 963.6pt x 542.025pt>
 File: ../figures/inn-layer_figure.png Graphic file (type png)
@@ -838,31 +834,27 @@ Package glossaries Warning: No \printglossary or \printglossaries found.
 (Remove \makeglossaries if you don't want any glossaries.)
 This document will not have a glossary.
 
-[3] (./dotson-inn-ans.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[3] (./dotson-inn-ans.aux) ) 
 Here is how much of TeX's memory you used:
- 10961 strings out of 493029
- 164676 string characters out of 6136233
+ 10960 strings out of 493029
+ 164608 string characters out of 6136233
  321796 words of memory out of 5000000
- 14089 multiletter control sequences out of 15000+600000
- 47480 words of font info for 179 fonts, out of 8000000 for 9000
+ 14084 multiletter control sequences out of 15000+600000
+ 45513 words of font info for 180 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,7n,77p,1942b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txf
-onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyb.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dotson-inn-ans.pdf (3 pages, 776310 bytes).
+ 46i,7n,77p,1942b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base
+/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/txfonts/txsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
+es/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on dotson-inn-ans.pdf (3 pages, 776099 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23578 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 22554 words of extra memory for PDF output out of 24883 (max. 10000000)
 
