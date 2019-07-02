@@ -87,7 +87,7 @@ The error function minimized during training of the INN is cross-entropy,
 \end{equation}
 
 Eq. 2 is the cross-entropy for multiclass classification, where there are more than two possible labels 
-for a given input. M is the total number of labels for a given model, in this case it corresponds to 29 
+for a given input. $M$ is the total number of labels for a given model, in this case it corresponds to 29 
 radionuclides \cite{AmericanNationalStandard2016}. Variable $y_{o,c}$ is binary, indicating whether observation, o, has the correct label, c. 
 Variable $p_{o,c}$ is the probability that o is a member of c. The complete INN model is shown in Figure $\ref{fig:inn-layer}$ and Figure $\ref{fig:inn-full}$ 
 The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final output is a softmax given by,
