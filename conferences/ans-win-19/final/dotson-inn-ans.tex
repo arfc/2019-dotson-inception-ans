@@ -1,4 +1,4 @@
-\documentclass{anstrans}
+\documentclass[fleqn]{anstrans}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Inception Neural Networks for Isotope Identification}
 \author{Samuel Dotson, Mark Kamuda, and Kathryn D. Huff}
@@ -17,6 +17,7 @@ sgd2@illinois.edu
 \usepackage{subcaption}
 \usepackage{enumitem}
 \usepackage{placeins}
+\usepackage{amsmath}
 \usepackage[acronym,toc]{glossaries}
 \include{acros}
 \makeglossaries
@@ -64,17 +65,21 @@ The sum of the inputs times the weights pointing to a neuron are passed through 
 In this paper it is a rectified linear unit,
 
 \begin{equation}
-Relu = argmax(0, x).
+	\begin{aligned}
+		Relu = argmax(0, x).
+	\end{aligned}
 \end{equation}
+
 The result is used as the input for the next layer, as shown in Figure $\ref{fig:neuron}$ 
 An ANN may be trained by iteratively updating the weights of a network that minimizes an error function, $E$. 
 The weights are updated through back propagation by taking the derivative of $E$ with respect to the weights. 
 The error function minimized during training of the INN is cross-entropy,
 
 \begin{equation}
-E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}}.
+	\begin{aligned}
+		E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}}.
+	\end{aligned}
 \end{equation}
-
 
 Eq. 2 is the cross-entropy for multiclass classification, where there are more than two possible labels 
 for a given input. M is the total number of labels for a given model, in this case it corresponds to 29 
@@ -82,9 +87,14 @@ radionuclides \cite{AmericanNationalStandard2016}. Variable $y_{o,c}$ is binary,
 Variable $p_{o,c}$ is the probability that o is a member of c. The complete INN model is shown in Figure $\ref{fig:inn-layer}$ and Figure $\ref{fig:inn-full}$ 
 The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final output is a softmax given by,
 
+
+
 \begin{equation}
-softmax(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{k}}.
+	\begin{aligned}
+		softmax(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{k}}.
+	\end{aligned}
 \end{equation}
+
 
 \begin{figure}[h]
     \centering
