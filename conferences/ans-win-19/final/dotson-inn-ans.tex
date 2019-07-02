@@ -48,13 +48,13 @@ Finally, new training data will be obtained through simulations with the GADRAS-
 An artificial neural network (ANN) is a function that maps values from ${\mathbb{R}}_{N}$ to ${\mathbb{R}}_{K}$ by mimicking biological 
 neurons. Examples of an arbitrary neural net and a single neuron are shown in Figures $\ref{fig:dense-nn}$ and $\ref{fig:neuron}$. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\textwidth]{../figures/dense-layer-figure.png}
 \caption{An arbitrary neural network that maps values with weights (arrows) \cite{kamudaComparisonMachineLearning2018a}.}
 \label{fig:dense-nn}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\textwidth]{../figures/neuron-figure.png}
 \caption{A single neuron being passed through an activation function, $\textit{f}$ \cite{kamudaComparisonMachineLearning2018a}.}
@@ -101,13 +101,13 @@ The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final
 \end{equation}
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=0.5\textwidth]{../figures/inn-layer_figure.png}
+    \includegraphics[width=0.5\textwidth]{../figures/inn_layer_improved.png}
     \caption{A gamma spectrum shown as the input for the first inception layer.}
-    \label{fig:inn-layer}
+    \label{fig:inn_layer}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth]{../figures/inn-full-figure.png}
     \caption{A zoomed out example of a full inception neural network.}
@@ -115,16 +115,15 @@ The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final
 \end{figure}
 
 The input data is passed through three inception layers and, after flattening, the output is passed to a dense layer which gives the final softmax output. 
-Each inception layer has a bottleneck, a convolution, and a concatenation \cite{szegedyGoingDeeperConvolutions2014} \cite{szegedyRethinkingInceptionArchitecture2015}.
-The bottleneck is reduces the computational complexity before large convolution filters are applied. 
-A large filter can be factorized into several smaller filters thereby reducing the number of required multiplications. 
+Each inception layer typically has a bottleneck, a convolution, and a concatenation \cite{szegedyGoingDeeperConvolutions2014} \cite{szegedyRethinkingInceptionArchitecture2015}.
+The input spectra are a one-dimensional array with length equal to the number of channels in the detector. The purpose of the bottleneck is to reduce dimensionality without losing information. Due to the low dimensional the bottleneck layer is ignored.   
 The convolution layer uses filters to select features of a spectrum that have local spatial significance, but no long-range relationships. 
 Once the convolution has been done with several filters in parallel the outputs of each of those convolutions are concatenated into a single tensor that is passed to the next inception layer, or dense layer if the last layer has been reached. 
 Just like a typical CNN, shown in Figure $\ref{fig:cnn}$, the final step after feature identification is classification. 
 Classification is performed by using a dense, or fully connected, layer that learns weights that correspond to a probability for a certain label. 
 In this case, the corresponding labels are radioactive isotopes.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{../figures/cnn-figure.png}
 	\caption{An example of a typical convolutional neural network \cite{kamudaComparisonMachineLearning2018a}.}
@@ -146,12 +145,32 @@ This is especially true for an INN, whose weights are difficult to tune with sim
 To solve this problem during training, we include an intermediate softmax output that allows for error corrections before the entire forward pass is complete. 
 This branch is ignored during prediction, but offers a way to prevent overtraining. 
 In the fully connected layer, dropout regularization forces the neural network to learn new pathways. 
+
+\begin{table}[ht]
+\caption{Hyperparameter Space for INN}
+\centering
+\begin{tabular}{l r}
+\hline\hline
+Hyperparameter & {Values}\\
+\hline
+\#inception layers & {1,2,3}\\
+\#filters & {3,4,5}\\
+output size & {3,5,7,9,11}\\
+kernel size & {5, 10, 15, 20, 25, 30, 35,}\\ 
+			& {40, 45, 50, 55, 60}\\
+dropout rate & {{0.0, 0.1, 0.2, 0.3, 0.4, 0.5}}\\ 
+dense layer size & {32, 64, 128, 256}\\
+\hline
+\end{tabular}
+\label{tab:hyper}
+\end{table}
+
 Hyperparameters can be used to optimize performance and prevent overfitting of the model.
 There is no way to know which hyperparameters will influence the model before training, so a random hyperparameter search is performed to find a set of hyperparameters that are close to ideal \cite{bergstraRandomSearchHyperParameter}. 
-For CNN structures, like the INN, hyperparameters include the number and sizes of convolutional filters, and the number of nodes and dropout rate for the fully connected layer \cite{kamudaMachineLearningApproach2018}.  
+For CNN structures, like the INN, hyperparameters include the sizes of convolutional filters, the output size (how many filters of each size) and the number of nodes and dropout rate for the fully connected layer \cite{kamudaMachineLearningApproach2018}.   
 \subsection{$\textit{Benchmark Techniques}$}
 
-In order to compare the efficiency of an INN to a traditional CNN we will use the data and results from \cite{kamudaMachineLearningApproach2018} to train and benchmark the INN. Then we will retrain the CNN and the INN using new and varied data. These comparisons will allow us to determine if, and by how much, the INN is an improvement over a CNN. It will also show us how dataset creation affects the robustness of the models.   
+In order to compare the efficiency of an INN to a traditional CNN we will use the data and results from \cite{kamudaMachineLearningApproach2018} to train and benchmark the INN. Then we will retrain the CNN and the INN using new and varied data. These comparisons will allow us to determine if, and by how much, an INN is an improvement over a CNN. It will also show us how dataset creation affects the robustness of the models.   
 The INN will be considered superior to CNN performance if equivalent training reduces prediction variance. 
 For concreteness, a 10$\%$ increase in training time should correspond to a 10$\%$, or greater, decrease in the variance for the INN when compared with the training time and variance of the CNN.
 
