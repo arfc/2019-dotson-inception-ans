@@ -33,7 +33,9 @@ sgd2@illinois.edu
 \section{Introduction}
 The development of algorithms that can accurately identify the isotopic sources of low-resolution gamma-ray 
 spectra is an advancement in current spectroscopy workflows \cite{rawool-sullivanStepsAutomatedGamma2010}.
-Previous work shows how isotope identification can be performed using artificial neural networks \cite{kamudaAutomatedIsotopeIdentification2017} \cite{kamudaComparisonMachineLearning2018a}, \cite{kamudaMachineLearningApproach2018}. 
+Previous work shows how isotope identification can be performed using 
+artificial neural networks 
+\cite{kamudaAutomatedIsotopeIdentification2017,kamudaComparisonMachineLearning2018a,kamudaMachineLearningApproach2018}. 
 This paper introduces a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis ($\textit{annsa}$) package, known as an Inception Neural Network (INN). 
 An INN implements inception layers that consist of wide convolution layers with several filters, rather than the typical single-filter layer found in simple convolutional neural networks (CNN).
 This paper also demonstrates improved methods for simulating spectra to better emulate the background radiation found in real measurements. 
@@ -115,7 +117,8 @@ The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final
 \end{figure}
 
 The input data is passed through three inception layers and, after flattening, the output is passed to a dense layer which gives the final softmax output. 
-Each inception layer typically has a bottleneck, a convolution, and a concatenation \cite{szegedyGoingDeeperConvolutions2014} \cite{szegedyRethinkingInceptionArchitecture2015}.
+Each inception layer typically has a bottleneck, a convolution, and a 
+concatenation \cite{szegedyGoingDeeperConvolutions2014,szegedyRethinkingInceptionArchitecture2015}.
 The input spectra are a one-dimensional array with length equal to the number of channels in the detector. The purpose of the bottleneck is to reduce dimensionality without losing information. The bottleneck layer is ignored in this research because spectra are already 1D arrays.   
 The convolution layer uses filters to select features of a spectrum with local spatial significance and lack long-range relationships. 
 Once the convolution has been done with several filters in parallel, the outputs of each of those convolutions are concatenated into a single tensor and passed to the next inception layer, or dense layer if the last layer has been reached. 
