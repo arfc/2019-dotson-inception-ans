@@ -137,8 +137,8 @@ It is infeasible to obtain enough real gamma spectrum measurements to properly t
 Thus all of the datasets used to train the neural network here were simulated using GADRAS-DRF \cite{mitchellGADRASIsotopeID2014}. 
 The 29 isotopes in the dataset are based on the American National Standards Institute performance criteria for hand held instruments for the detection and identification of radionuclides, ANSI N42-34-2015 \cite{AmericanNationalStandard2016}. 
 Previous work \cite{kamudaComparisonMachineLearning2018a} used a uniform distribution of background isotopes and a constant average count of 65 counts per second (cps) for the background. 
-Simulating background radiation in this manner is insufficient for training a neural network to be robust against background variations and thus cannot be generalized to real conditions. 
-We are updating the simulation protocol to increase the variability in background conditions. New simulated data will include random noise in a range of 40 to 200 cps. 
+Simulating background radiation in this manner fails to capture the variability of real background spectra.
+We are updating the simulation protocol to include variations in background conditions. New simulated data will include random noise in a range of 40 to 200 cps. 
 We believe this range is realistic for background radiation.
 \subsection{$\textit{Network Structure and Hyperparameters}$}
 A neural network can memorize training sets resulting in overtraining and a misidentification of novel data. 
