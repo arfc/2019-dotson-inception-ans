@@ -2,7 +2,7 @@
 ANS Conference 2019 Winter Summary
 
 
-##Compile Instructions
+## Compile Instructions
 1. Builds Files
 `$ pdflatex dotson-inn-ans.tex`
 2. Builds Citations
