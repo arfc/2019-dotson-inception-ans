@@ -35,7 +35,7 @@ The development of algorithms that can accurately identify the isotopic sources 
 spectra is an advancement in current spectroscopy workflows \cite{rawool-sullivanStepsAutomatedGamma2010}.
 Previous work shows how isotope identification can be performed using 
 artificial neural networks 
-\cite{kamudaAutomatedIsotopeIdentification2017,kamudaComparisonMachineLearning2018a,kamudaMachineLearningApproach2018}. 
+\cite{kamudaAutomatedIsotopeIdentification2018,kamudaComparisonMachineLearning2018a,kamudaAutomatedIsotopeIdentification2017b}. 
 This paper introduces a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis (\texttt{annsa}) package, known as an Inception Neural Network (INN). 
 An INN implements inception layers that consist of wide convolution layers with several filters, rather than the typical single-filter layer found in simple convolutional neural networks (CNN).
 This paper also demonstrates improved methods for simulating spectra to better emulate the background radiation found in real measurements. 
@@ -85,7 +85,7 @@ The error function minimized during training of the INN is cross-entropy,
 
 Eq. 2 shows the cross-entropy for multiclass classification for cases with more than two possible labels 
 for a given input. $M$ is the total number of labels for a given model, in this case it corresponds to 29 
-radionuclides \cite{AmericanNationalStandard2016}. Variable $y_{o,c}$ is binary, indicating whether observation, $o$, has the correct label, $c$. 
+radionuclides \cite{nationalcommitteeonradiationinstrumentationn42AmericanNationalStandard2016}. Variable $y_{o,c}$ is binary, indicating whether observation, $o$, has the correct label, $c$. 
 Variable $p_{o,c}$ is the probability that $o$ is a member of $c$. The complete INN model is shown in Figure $\ref{fig:inn-layer}$ and Figure $\ref{fig:inn-full}$ 
 The input for the INN is a 3$"$x3$"$ NaI spectrum of 1024 channels and the final output is a softmax given by,
 
@@ -130,7 +130,7 @@ In this case, the corresponding labels are radionuclides.
 \subsection{$\textit{Training Set Creation}$}
 It is infeasible to obtain enough real gamma spectrum measurements to properly train a neural network. 
 Thus all of the datasets used to train the neural network were simulated using GADRAS-DRF \cite{mitchellGADRASIsotopeID2014}. 
-The 29 isotopes in the dataset are based on the American National Standards Institute performance criteria for handheld instruments for the detection and identification of radionuclides, ANSI N42-34-2015 \cite{AmericanNationalStandard2016}. 
+The 29 isotopes in the dataset are based on the American National Standards Institute performance criteria for handheld instruments for the detection and identification of radionuclides, ANSI N42-34-2015 \cite{nationalcommitteeonradiationinstrumentationn42AmericanNationalStandard2016}. 
 Previous work \cite{kamudaComparisonMachineLearning2018a} used a uniform distribution of background isotopes and a constant average count of 65 counts per second (cps) for the background. 
 Simulating background radiation in this manner fails to capture the variability of real background spectra.
 We are updating the simulation protocol to include variations in background conditions. New simulated data will include random noise in a range of 40 to 200 cps. 
@@ -143,8 +143,8 @@ To solve this problem during training, we include an intermediate softmax output
 This branch is ignored during prediction, but offers a way to prevent overtraining. 
 In the fully connected layer, dropout regularization forces the neural network to learn new pathways. 
 Hyperparameters can be used to optimize performance and prevent overfitting of the model.
-There is no way to know which hyperparameters will influence the model before training, so a random hyperparameter search is performed to find a set of hyperparameters close to the ideal set\cite{bergstraRandomSearchHyperParameter}. 
-For CNN structures, like the INN, hyperparameters include the sizes of convolutional filters, the output size (how many filters of each size), the number of nodes in a dense layer, and dropout rate \cite{kamudaMachineLearningApproach2018} shown in Table \ref{tab:hyper}. We also include two INN-specific hyperparameters: Number of inception layers and number of filters per layer. Having a choice in the number of filters exemplifies the benefit of using an INN. Instead of convolving an input with filters of only a single size we can convolve many filter sizes and then concatenate the result as in Figure \ref{fig:inn-layer}.
+There is no way to know which hyperparameters will influence the model before training, so a random hyperparameter search is performed to find a set of hyperparameters close to the ideal set\cite{bergstraRandomSearchHyperParameter2012}. 
+For CNN structures, like the INN, hyperparameters include the sizes of convolutional filters, the output size (how many filters of each size), the number of nodes in a dense layer, and dropout rate \cite{kamudaComparisonMachineLearning2018a} shown in Table \ref{tab:hyper}. We also include two INN-specific hyperparameters: Number of inception layers and number of filters per layer. Having a choice in the number of filters exemplifies the benefit of using an INN. Instead of convolving an input with filters of only a single size we can convolve many filter sizes and then concatenate the result as in Figure \ref{fig:inn-layer}.
 
 \begin{table}[ht]
 \caption{Hyperparameter Space for INN}
@@ -167,7 +167,7 @@ dense layer size & {32, 64, 128, 256}\\
 
 \subsection{$\textit{Benchmark Techniques}$}
 
-In order to compare the efficiency of an INN to a traditional CNN we will use the data and results from \cite{kamudaMachineLearningApproach2018} to train and benchmark the INN. Then we will retrain the CNN and the INN using new and varied data. These comparisons will allow us to determine if, and by how much, an INN is an improvement over a CNN. It will also show us how dataset creation affects the robustness of the models.   
+In order to compare the efficiency of an INN to a traditional CNN we will use the data and results from \cite{kamudaComparisonMachineLearning2018a} to train and benchmark the INN. Then we will retrain the CNN and the INN using new and varied data. These comparisons will allow us to determine if, and by how much, an INN is an improvement over a CNN. It will also show us how dataset creation affects the robustness of the models.   
 The INN will be considered superior to CNN performance if equivalent training reduces prediction variance. 
 For concreteness, a 10$\%$ increase in training time should correspond to a 10$\%$, or greater, decrease in the variance for the INN when compared with the training time and variance of the CNN.
 
