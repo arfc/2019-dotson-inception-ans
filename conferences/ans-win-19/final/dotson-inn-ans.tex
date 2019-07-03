@@ -65,28 +65,23 @@ neurons. Examples of an arbitrary neural net and a single neuron are shown in Fi
 
 The sum of the inputs times the weights, $x$, pointing to a neuron are passed through an activation function.
 In this paper we used a rectified linear unit ($\textit{relu}$),
-\begin{equation}
-	\begin{aligned}
-		x = \sum_{n=1}^{N}A_i w_{ij} [-],
-	\end{aligned}
-\end{equation}  
+	\begin{align}
+                x &= \sum_{n=1}^{N}A_i w_{ij} [-],
+	\end{align}
 
-\begin{equation}
-	\begin{aligned}
+	\begin{align}
 		relu = argmax(0, x) [-],
-	\end{aligned}
-\end{equation}
+	\end{align}
+
 The $\textit{relu}$ function will turn $on$ a neuron if $x$ is greater than 0, otherwise the neuron stays off.
 The result is used as the input for the next layer, as shown in Figure $\ref{fig:neuron}$ 
 An artificial neural network may be trained by iteratively updating the weights of a network by minimizing an error function, $E$. 
 The weights are updated through back propagation by taking the derivative of $E$ with respect to the weights. 
 The error function minimized during training of the INN is cross-entropy,
 
-\begin{equation}
-	\begin{aligned}
+	\begin{align}
 		E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}} [-].
-	\end{aligned}
-\end{equation}
+	\end{align}
 
 Eq. 2 shows the cross-entropy for multiclass classification for cases with more than two possible labels 
 for a given input. $M$ is the total number of labels for a given model, in this case it corresponds to 29 
@@ -96,11 +91,9 @@ The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final
 
 
 
-\begin{equation}
-	\begin{aligned}
+	\begin{align}
 		softmax(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{k}} [-].
-	\end{aligned}
-\end{equation}
+	\end{align}
 
 
 \begin{figure}[ht]
