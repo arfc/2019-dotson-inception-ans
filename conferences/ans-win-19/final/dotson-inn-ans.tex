@@ -36,12 +36,12 @@ spectra is an advancement in current spectroscopy workflows \cite{rawool-sulliva
 Previous work shows how isotope identification can be performed using 
 artificial neural networks 
 \cite{kamudaAutomatedIsotopeIdentification2017,kamudaComparisonMachineLearning2018a,kamudaMachineLearningApproach2018}. 
-This paper introduces a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis ($\textit{annsa}$) package, known as an Inception Neural Network (INN). 
+This paper introduces a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis (\texttt{annsa}) package, known as an Inception Neural Network (INN). 
 An INN implements inception layers that consist of wide convolution layers with several filters, rather than the typical single-filter layer found in simple convolutional neural networks (CNN).
 This paper also demonstrates improved methods for simulating spectra to better emulate the background radiation found in real measurements. 
 The features of a gamma-ray spectrum vary depending on the full width at half max (FWHM) of the photopeaks. 
 Simultaneously applying multiple filters of different sizes allows an INN to capture more features during a single layer than a CNN. 
-We hypothesize that an INN will also be robust to changes in background radiation thereby generalizing the $\textit{annsa}$ framework to more scenarios. 
+We hypothesize that an INN will also be robust to changes in background radiation thereby generalizing the \texttt{annsa} framework to more scenarios. 
 We compare the accuracy of an INN to a simple CNN to determine if the improvement in accuracy warrants the increased computational complexity. 
 Finally, new training data will be obtained through simulations with the GADRAS-DRF software \cite{mitchellGADRASIsotopeID2014}.
 
