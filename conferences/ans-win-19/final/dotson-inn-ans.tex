@@ -74,7 +74,7 @@ In this paper we used a rectified linear unit ($\textit{relu}$),
 	\end{align}
 
 The $\textit{relu}$ function will turn $on$ a neuron if $x$ is greater than 0, otherwise the neuron stays off.
-The result is used as the input for the next layer, as shown in Figure $\ref{fig:neuron}$ 
+This result becomes the input for the next layer, as shown in Figure $\ref{fig:neuron}$ 
 An artificial neural network may be trained by iteratively updating the weights of a network by minimizing an error function, $E$. 
 The weights are updated through back propagation by taking the derivative of $E$ with respect to the weights. 
 The error function minimized during training of the INN is cross-entropy,
@@ -87,7 +87,7 @@ Eq. 2 shows the cross-entropy for multiclass classification for cases with more 
 for a given input. $M$ is the total number of labels for a given model, in this case it corresponds to 29 
 radionuclides \cite{AmericanNationalStandard2016}. Variable $y_{o,c}$ is binary, indicating whether observation, $o$, has the correct label, $c$. 
 Variable $p_{o,c}$ is the probability that $o$ is a member of $c$. The complete INN model is shown in Figure $\ref{fig:inn-layer}$ and Figure $\ref{fig:inn-full}$ 
-The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final output is a softmax given by,
+The input for the INN is a 3$"$x3$"$ NaI spectrum of 1024 channels and the final output is a softmax given by,
 
 
 
