@@ -33,13 +33,15 @@ sgd2@illinois.edu
 \section{Introduction}
 The development of algorithms that can accurately identify the isotopic sources of low-resolution gamma-ray 
 spectra is an advancement in current spectroscopy workflows \cite{rawool-sullivanStepsAutomatedGamma2010}.
-Previous work shows how isotope identification can be performed using artificial neural networks \cite{kamudaAutomatedIsotopeIdentification2017} \cite{kamudaComparisonMachineLearning2018a}, \cite{kamudaMachineLearningApproach2018}. 
-This paper introduces a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis ($\textit{annsa}$) package, known as an Inception Neural Network (INN). 
+Previous work shows how isotope identification can be performed using 
+artificial neural networks 
+\cite{kamudaAutomatedIsotopeIdentification2017,kamudaComparisonMachineLearning2018a,kamudaMachineLearningApproach2018}. 
+This paper introduces a new feature to the existing architecture of the Artificial Neural Network for Spectroscopic Analysis (\texttt{annsa}) package, known as an Inception Neural Network (INN). 
 An INN implements inception layers that consist of wide convolution layers with several filters, rather than the typical single-filter layer found in simple convolutional neural networks (CNN).
 This paper also demonstrates improved methods for simulating spectra to better emulate the background radiation found in real measurements. 
 The features of a gamma-ray spectrum vary depending on the full width at half max (FWHM) of the photopeaks. 
 Simultaneously applying multiple filters of different sizes allows an INN to capture more features during a single layer than a CNN. 
-We hypothesize that an INN will also be robust to changes in background radiation thereby generalizing the $\textit{annsa}$ framework to more scenarios. 
+We hypothesize that an INN will also be robust to changes in background radiation thereby generalizing the \texttt{annsa} framework to more scenarios. 
 We compare the accuracy of an INN to a simple CNN to determine if the improvement in accuracy warrants the increased computational complexity. 
 Finally, new training data will be obtained through simulations with the GADRAS-DRF software \cite{mitchellGADRASIsotopeID2014}.
 
@@ -63,28 +65,23 @@ neurons. Examples of an arbitrary neural net and a single neuron are shown in Fi
 
 The sum of the inputs times the weights, $x$, pointing to a neuron are passed through an activation function.
 In this paper we used a rectified linear unit ($\textit{relu}$),
-\begin{equation}
-	\begin{aligned}
-		x = \sum_{n=1}^{N}A_i w_{ij} [-],
-	\end{aligned}
-\end{equation}  
+	\begin{align}
+                x &= \sum_{n=1}^{N}A_i w_{ij} [-],
+	\end{align}
 
-\begin{equation}
-	\begin{aligned}
+	\begin{align}
 		relu = argmax(0, x) [-],
-	\end{aligned}
-\end{equation}
+	\end{align}
+
 The $\textit{relu}$ function will turn $on$ a neuron if $x$ is greater than 0, otherwise the neuron stays off.
 The result is used as the input for the next layer, as shown in Figure $\ref{fig:neuron}$ 
 An artificial neural network may be trained by iteratively updating the weights of a network by minimizing an error function, $E$. 
 The weights are updated through back propagation by taking the derivative of $E$ with respect to the weights. 
 The error function minimized during training of the INN is cross-entropy,
 
-\begin{equation}
-	\begin{aligned}
+	\begin{align}
 		E = -\sum_{c}^{M}y_{o,c}\ln{p_{o,c}} [-].
-	\end{aligned}
-\end{equation}
+	\end{align}
 
 Eq. 2 shows the cross-entropy for multiclass classification for cases with more than two possible labels 
 for a given input. $M$ is the total number of labels for a given model, in this case it corresponds to 29 
@@ -94,11 +91,9 @@ The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final
 
 
 
-\begin{equation}
-	\begin{aligned}
+	\begin{align}
 		softmax(z_j) = \frac{e^{z_j}}{\sum_{k=1}^{k}} [-].
-	\end{aligned}
-\end{equation}
+	\end{align}
 
 
 \begin{figure}[ht]
@@ -115,7 +110,8 @@ The input for the INN is a 2$"$x2$"$ NaI spectrum of 1024 channels and the final
 \end{figure}
 
 The input data is passed through three inception layers and, after flattening, the output is passed to a dense layer which gives the final softmax output. 
-Each inception layer typically has a bottleneck, a convolution, and a concatenation \cite{szegedyGoingDeeperConvolutions2014} \cite{szegedyRethinkingInceptionArchitecture2015}.
+Each inception layer typically has a bottleneck, a convolution, and a 
+concatenation \cite{szegedyGoingDeeperConvolutions2014,szegedyRethinkingInceptionArchitecture2015}.
 The input spectra are a one-dimensional array with length equal to the number of channels in the detector. The purpose of the bottleneck is to reduce dimensionality without losing information. The bottleneck layer is ignored in this research because spectra are already 1D arrays.   
 The convolution layer uses filters to select features of a spectrum with local spatial significance and lack long-range relationships. 
 Once the convolution has been done with several filters in parallel, the outputs of each of those convolutions are concatenated into a single tensor and passed to the next inception layer, or dense layer if the last layer has been reached. 
